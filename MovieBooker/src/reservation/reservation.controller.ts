@@ -10,7 +10,15 @@ import {
 import { ReservationService } from './reservation.service';
 import { ReservationDto } from './dto/reservation.dto';
 import { AuthGuard } from '../auth/auth.guard';
-import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiSecurity } from "@nestjs/swagger";
+import {
+  ApiBasicAuth,
+  ApiBearerAuth,
+  ApiBody,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiSecurity
+} from "@nestjs/swagger";
 
 @Controller('reservation')
 export class ReservationController {
@@ -20,6 +28,7 @@ export class ReservationController {
   @ApiSecurity('jwt', ['jsonwebtoken'])
   @ApiResponse({ status: 201, description: 'List of reservations' })
   @ApiResponse({ status: 403, description: 'Unauthorized' })
+  @ApiBearerAuth()
   @Get('')
   @UseGuards(AuthGuard)
   async getReservations(@Req() req: any) {
@@ -32,13 +41,14 @@ export class ReservationController {
     schema: {
       type: 'object',
       properties: {
-        movieId: { type: "number", example: "939243" },
-        start: { type: "ISO date string", example: "2025-02-07T13:20:12Z" },
+        movieId: { type: 'number', example: '939243' },
+        start: { type: 'ISO date string', example: '2025-02-07T13:20:12Z' },
       },
     },
   })
   @ApiResponse({ status: 201, description: 'Created reservation id' })
   @ApiResponse({ status: 403, description: 'Unauthorized' })
+  @ApiBearerAuth()
   @Post('')
   @UseGuards(AuthGuard)
   async create(@Body() reservationDto: ReservationDto, @Req() req: any) {
@@ -55,6 +65,7 @@ export class ReservationController {
   @ApiResponse({ status: 403, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Unauthorized' })
   @ApiParam({ name: 'id', description: 'id of the reservation' })
+  @ApiBearerAuth()
   @Delete(':id')
   @UseGuards(AuthGuard)
   async deleteReservation(@Param('id') id: string, @Req() req: any) {
