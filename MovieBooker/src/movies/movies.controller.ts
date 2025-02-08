@@ -32,7 +32,6 @@ export class MoviesController {
     @Query('page') page: number,
     @Query('search') search: string,
   ): Promise<any> {
-
     if (search) {
       return await this.moviesService.getMovieByTitle(search, page);
     } else {
