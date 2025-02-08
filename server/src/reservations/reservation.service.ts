@@ -39,8 +39,16 @@ export class ReservationService {
   async findOneByDate(date: Date, req) {
     return this.reservationModel.findOne({
       userId: req.user._id,
-      date_start: { $lte: moment(date).toISOString() },
-      date_end: { $gte: moment(date).toISOString() },
+      $or: [
+        {
+          date_start: { $lte: moment(date).toISOString() },
+          date_end: { $gte: moment(date).toISOString() },
+        },
+        {
+          date_start: { $lte: moment(date).add(2, 'hours').toISOString() },
+          date_end: { $gte: moment(date).add(2, 'hours').toISOString() },
+        },
+      ],
     });
   }
 
