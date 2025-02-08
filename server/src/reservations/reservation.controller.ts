@@ -47,6 +47,7 @@ export class ReservationController {
     },
   })
   @ApiResponse({ status: 201, description: 'Created reservation id' })
+  @ApiResponse({ status: 400, description: 'Reservation cannot be created for provided time' })
   @ApiResponse({ status: 403, description: 'Unauthorized' })
   @ApiBearerAuth()
   @Post('')
