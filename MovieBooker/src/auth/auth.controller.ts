@@ -6,7 +6,7 @@ import {
 
 import { AuthService } from 'src/auth/auth.service';
 import { signInDto, signUpDto } from './dto/auth.dto';
-import { UserService } from '../user/user.service';
+import { UserService } from '../users/user.service';
 import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('auth')

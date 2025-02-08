@@ -6,8 +6,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
-import { ReservationModule } from './reservation/reservation.module';
+import { UserModule } from './users/user.module';
+import { ReservationModule } from './reservations/reservation.module';
 import { MoviesModule } from './movies/movies.module';
 
 @Module({
