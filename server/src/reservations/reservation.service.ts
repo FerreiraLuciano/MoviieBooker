@@ -21,7 +21,7 @@ export class ReservationService {
 
     if (is_reserv) {
       throw new HttpException(
-        "Current time selected isn't available, either delete the other reservation or book your reservation after it is finished",
+        "Current time selected isn't available, either delete the other reservation or book your reservation after it is finished.",
         HttpStatus.BAD_REQUEST,
       );
     }
