@@ -7,8 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('MoviieBroker')
-    .setDescription('The MoviieBroker API description')
+    .setTitle('Api MoviieBooker')
+    .setDescription("The API that let's you make reservations for your favorite movies")
     .setVersion('1.0')
     .addBearerAuth()
     .build();
