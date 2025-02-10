@@ -35,7 +35,7 @@ export class AuthController {
   @ApiResponse({ status: 201, description: 'User created successfully' })
   @ApiResponse({
     status: 400,
-    description: 'User already exists, invalid email or password too weak',
+    description: 'Email already in use, invalid email or password too weak',
   })
   @Post('signup')
   async signUp(@Body() signUpDto: signUpDto) {

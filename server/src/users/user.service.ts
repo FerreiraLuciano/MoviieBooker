@@ -20,7 +20,7 @@ export class UserService {
     const { email } = userDto;
     const user = await this.userModel.findOne({ email });
     if (user) {
-      throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException('Email already in use', HttpStatus.BAD_REQUEST);
     }
     try {
       const createdUser = new this.userModel(userDto);
