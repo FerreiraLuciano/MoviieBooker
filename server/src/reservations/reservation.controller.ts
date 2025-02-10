@@ -24,7 +24,7 @@ import {
 export class ReservationController {
   constructor(private reservationService: ReservationService) {}
 
-  @ApiOperation({ summary: 'Fetches all reservations from logged in user' })
+  @ApiOperation({ summary: 'Fetches all reservations for logged in user' })
   @ApiSecurity('jwt', ['jsonwebtoken'])
   @ApiResponse({ status: 201, description: 'List of reservations' })
   @ApiResponse({ status: 403, description: 'Unauthorized' })
